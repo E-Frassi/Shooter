@@ -3,6 +3,11 @@
 [ext_resource type="Script" uid="uid://c8plqlyln2nhn" path="res://Scripts/jogo.gd" id="1_03mvh"]
 [ext_resource type="Texture2D" uid="uid://c0lql4rl8f2n7" path="res://Elementos/assetpack/Bonus (player ship)/sprite_player_spaceship_up_down.png" id="1_5n27r"]
 [ext_resource type="Script" uid="uid://u8ggpbrt6qag" path="res://Scripts/player.gd" id="2_45s2r"]
+[ext_resource type="Script" uid="uid://ch0wo2amsrddy" path="res://Scripts/parallax_background.gd" id="4_p2wm8"]
+[ext_resource type="Texture2D" uid="uid://bfopct5eycw7m" path="res://Elementos/assetpack/parallax/skies/Sky_sky.png" id="4_reiul"]
+[ext_resource type="Texture2D" uid="uid://c835pbailcb7a" path="res://Elementos/assetpack/parallax/desert/desert_dunemid.png" id="5_xmmbr"]
+[ext_resource type="Texture2D" uid="uid://dc80dpnkbheeu" path="res://Elementos/assetpack/parallax/desert/desert_dunefrontt.png" id="6_p2wm8"]
+[ext_resource type="Texture2D" uid="uid://og4et7lvuy4v" path="res://Elementos/assetpack/parallax/skies/sky_cloud_floor_2.png" id="7_xmmbr"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_03mvh"]
 atlas = ExtResource("1_5n27r")
@@ -135,7 +140,7 @@ script = ExtResource("2_45s2r")
 position = Vector2(189, 266.5)
 scale = Vector2(0.5885714, 0.52666664)
 sprite_frames = SubResource("SpriteFrames_kckrb")
-frame_progress = 0.68002826
+frame_progress = 0.6004454
 
 [node name="CorpoPlayer" type="CollisionShape2D" parent="Player" unique_id=1190847538]
 position = Vector2(186, 268)
@@ -158,3 +163,42 @@ shape = SubResource("RectangleShape2D_352g1")
 [node name="Esq" type="CollisionShape2D" parent="Paredes" unique_id=2063698254]
 position = Vector2(-4, 322.5)
 shape = SubResource("RectangleShape2D_i0r6i")
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="." unique_id=1015540900]
+script = ExtResource("4_p2wm8")
+
+[node name="FundoCeu" type="ParallaxLayer" parent="ParallaxBackground" unique_id=638009446]
+motion_scale = Vector2(0.05, 0.05)
+motion_mirroring = Vector2(1152, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/FundoCeu" unique_id=1235072744]
+position = Vector2(577.5, 509.5)
+scale = Vector2(0.6173684, 1.039)
+texture = ExtResource("4_reiul")
+
+[node name="FundoMontanha" type="ParallaxLayer" parent="ParallaxBackground" unique_id=464560152]
+motion_scale = Vector2(0.1, 0.1)
+motion_mirroring = Vector2(1152, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/FundoMontanha" unique_id=1828729684]
+position = Vector2(575, 164)
+scale = Vector2(0.62526315, 1)
+texture = ExtResource("5_xmmbr")
+
+[node name="FrenteMontanha" type="ParallaxLayer" parent="ParallaxBackground" unique_id=1568564395]
+motion_scale = Vector2(0.3, 0.3)
+motion_mirroring = Vector2(1152, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/FrenteMontanha" unique_id=2095473905]
+position = Vector2(585, 322)
+scale = Vector2(0.31657892, 0.647)
+texture = ExtResource("6_p2wm8")
+
+[node name="FrenteNuvens" type="ParallaxLayer" parent="ParallaxBackground" unique_id=1431252935]
+motion_scale = Vector2(3, 3)
+motion_mirroring = Vector2(1152, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/FrenteNuvens" unique_id=1621002873]
+position = Vector2(579, -215)
+scale = Vector2(0.6221053, 0.805)
+texture = ExtResource("7_xmmbr")
